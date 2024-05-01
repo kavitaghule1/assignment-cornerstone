@@ -1,0 +1,6 @@
+
+# values.yaml
+mysql:
+  image: mysql:5.7
+  rootPassword: example-password
+  database: example-db
