@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-calc
+  labels:
+    app: go-calc
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: go-calc
+  type: LoadBalancer
