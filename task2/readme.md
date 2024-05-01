@@ -1,4 +1,4 @@
-**<span style="font-size: 20px;">gocalc</span>**
+**<span style="font-size: 26px;">gocalc</span>**
 
 prerequesits
 helm installed
