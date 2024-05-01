@@ -1,0 +1,46 @@
+---
+- name: Harden Linux instance
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure root login is disabled
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: 'PermitRootLogin no'
+      notify: restart sshd
+
+    - name: Disable password-based authentication
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication no'
+      notify: restart sshd
+
+    - name: Set SSH protocol to 2
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^Protocol'
+        line: 'Protocol 2'
+      notify: restart sshd
+
+    - name: Enable SSH key-based authentication
+      authorized_key:
+        user: "{{ ansible_user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Ensure only necessary services are running
+      service:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        - sshd
+        - firewalld
+
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
