@@ -1,0 +1,23 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mysql-chart.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "mysql-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "mysql-chart.name" . }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.mysql.image }}"
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "{{ .Values.mysql.rootPassword }}"
+            - name: MYSQL_DATABASE
+              value: "{{ .Values.mysql.database }}"
