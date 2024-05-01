@@ -38,5 +38,8 @@ helm install go-calc ./go-calc-0.1.0.tgz
 Verify Installation: Verify that the go-calc application is deployed successfully.
 
 kubectl get pods
+
 kubectl get services
+
 curl http://<service-ip>:<service-port>
+
