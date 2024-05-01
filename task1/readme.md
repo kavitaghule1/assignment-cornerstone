@@ -1,5 +1,6 @@
 
 Install LocalStack: git clone https://github.com/localstack/localstack
+
 Set up Terraform: install terraform
 Create Terraform Configuration: //  task1/  
 terraform init 
