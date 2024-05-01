@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-calc-service
+spec:
+  selector:
+    app: go-calc
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-calc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-calc
+  template:
+    metadata:
+      labels:
+        app: go-calc
+    spec:
+      containers:
+        - name: go-calc-container
+          image: kavighule6/gocalc:01
+          ports:
+            - containerPort: 8080
