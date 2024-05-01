@@ -1,7 +1,7 @@
-<span style="font-size:48px;"><b>Bold Assignment Cornerstone:</b></span>
+**<span style="font-size:48px;"><b> Assignment Cornerstone:</b></span>**
 
-Assignment Cornerstone:
-LocalStack Project
+**<span style="font-size:24px;">LocalStack Project</span>**
+
 This project demonstrates how to use LocalStack to emulate AWS services locally, specifically focusing on creating an API Gateway.
 
 Prerequisites
