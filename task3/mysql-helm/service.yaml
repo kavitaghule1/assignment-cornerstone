@@ -1,0 +1,12 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mysql-chart.fullname" . }}
+spec:
+  selector:
+    app: {{ include "mysql-chart.name" . }}
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
