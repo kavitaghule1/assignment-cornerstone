@@ -1,4 +1,4 @@
-**<span style="font-size:48px;"><b> Assignment Cornerstone:</b></span>**
+**<span style="font-size:68px;"><b> Assignment Cornerstone:</b></span>**
 
 **<span style="font-size:24px;">LocalStack Project</span>**
 
