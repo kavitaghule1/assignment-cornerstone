@@ -24,9 +24,11 @@ Clone the repository:
 git clone https://github.com/localstack/localstack
 
 Navigate to the project directory:
+
 cd localstack
 
 Start LocalStack using Docker Compose:
+
 docker-compose up -d   //Verify that LocalStack is running 
 
 docker ps
