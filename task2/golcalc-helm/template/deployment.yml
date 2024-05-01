@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-calc
+  name: {{ include "go-calc.fullname" . }}
   labels:
-    app: go-calc
+    app: {{ include "go-calc.name" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: go-calc
+      app: {{ include "go-calc.name" . }}
   template:
     metadata:
       labels:
-        app: go-calc
+        app: {{ include "go-calc.name" . }}
     spec:
       containers:
-      - name: go-calc
-        image: kavighule6/gocalc
-        ports:
-        - containerPort: 8080
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
