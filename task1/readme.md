@@ -37,13 +37,17 @@ Once LocalStack is running, you can use it to create and test AWS resources loca
 #Apply the Terraform configuration to create the API Gateway resources:
 
 terraform init 
+
 terraform validate
+
 terraform apply --auto-approve    //Once Terraform has applied the configuration successfully, it will output the endpoint URL of the API Gateway.
  
 
 #Use CURL or any HTTP client to test the API Gateway:
+
 curl -X GET http://localhost:4566/restapis/<API_ID>/    //Replace <endpoint-url> with the actual endpoint URL obtained from the Terraform output.
 
 Cleanup
 #After you have finished using the LocalStack project, you can clean up the resources by stopping and removing the Docker containers:
+
 docker-compose down
