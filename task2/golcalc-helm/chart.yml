@@ -1,0 +1,4 @@
+apiVersion: v2
+name: go-calc
+description: A Helm chart for deploying the go-calc application
+version: 0.1.0
