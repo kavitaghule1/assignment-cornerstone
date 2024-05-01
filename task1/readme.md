@@ -21,7 +21,7 @@ Java: Install Java
 Setup Instructions
 ##Follow these steps to set up and run the LocalStack project:
 
-Clone the repository:
+**Clone the repository:**
 
 git clone https://github.com/localstack/localstack
 #Navigate to the project directory:
@@ -37,7 +37,7 @@ docker ps
 #Once LocalStack is running, you can use it to create and test AWS resources locally.
 
 #Creating an API Gateway and Apply the Terraform configuration to create the API Gateway resources:
-#Initialize Terraform:
+**#Initialize Terraform:**
 
 terraform init
 
@@ -58,7 +58,7 @@ curl -X GET http://localhost:4566/restapis/<API_ID>/
 
 #Replace <API_ID> with the actual API ID obtained from the Terraform output.
 
-Cleanup
+**Cleanup**
 #After you have finished using the LocalStack project, you can clean up the resources by stopping and removing the Docker containers:
 
 docker-compose down
