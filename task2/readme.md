@@ -41,5 +41,6 @@ kubectl get pods
 
 kubectl get services
 
-curl http://<service-ip>:<service-port>
+curl http:curl http://instance_ip:8080/health
+
 
