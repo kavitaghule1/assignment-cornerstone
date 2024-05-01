@@ -1,0 +1,23 @@
+# Use the official Go image as the base image
+FROM golang
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the entire project directory into the container
+COPY ./ .
+
+# Initialize Go modules with a valid module path
+RUN go mod init github.com/edcast/go-calc
+
+# Tidy dependencies
+RUN go mod tidy
+
+# Build the Go application
+RUN go build -o go-calc .
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Command to run the executable
+CMD ["./go-calc"]
