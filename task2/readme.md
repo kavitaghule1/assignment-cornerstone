@@ -31,6 +31,8 @@ helm create go-calc
 Package Helm Chart: Package the Helm chart into a .tgz file.
 
 helm package helm-chart
+helm package .
+
 
 Install Helm Chart: Install the Helm chart onto your Kubernetes cluster.
 
