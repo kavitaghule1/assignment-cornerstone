@@ -1,0 +1,14 @@
+# Default values for go-calc.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: kavighule6/go-calc:02
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+
+# Add other configuration options as needed
