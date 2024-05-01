@@ -1,6 +1,4 @@
 
-It seems like you have provided setup instructions and steps to create an API Gateway using LocalStack and Terraform, along with cleanup instructions. You also mentioned creating a README.md file. Here's a revised version of the README.md file with improved formatting and additional details:
-
 Assignment Cornerstone
 LocalStack Project
 This project demonstrates how to use LocalStack to emulate AWS services locally, specifically focusing on creating an API Gateway.
