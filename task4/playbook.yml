@@ -2,6 +2,8 @@
 - name: Harden Linux instance
   hosts: localhost
   become: yes
+  vars:
+    ansible_user: ec2-user
   tasks:
     - name: Ensure root login is disabled
       lineinfile:
@@ -24,11 +26,30 @@
         line: 'Protocol 2'
       notify: restart sshd
 
+
+    - name: Ensure the SSH key exists
+      local_action:
+        module: stat
+        path: ~/.ssh/id_rsa.pub
+      register: ssh_key
+
+    - name: Generate SSH key if it does not exist
+      local_action:
+        module: command
+        cmd: ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+      when: not ssh_key.stat.exists
+
     - name: Enable SSH key-based authentication
       authorized_key:
         user: "{{ ansible_user }}"
         state: present
         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Install firewalld
+      package:
+        name: firewalld
+        state: present
+      when: ansible_distribution in ["RedHat", "CentOS", "Fedora", "Amazon"]
 
     - name: Ensure only necessary services are running
       service:
@@ -44,3 +65,4 @@
       service:
         name: sshd
         state: restarted
+~
