@@ -1,6 +1,7 @@
 **<span style="font-size: 26px;">Gocalc Application </span>**
 
 prerequesits
+
 helm installed
 docker installed
 git installed
