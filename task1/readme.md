@@ -53,6 +53,7 @@ terraform apply --auto-approve
 
 #Use CURL or any HTTP client to test the API Gateway:
 
+ aws --endpoint-url=http://localhost:4566 apigateway get-rest-apis
 
 curl -X GET http://localhost:4566/restapis/<API_ID>/
 
